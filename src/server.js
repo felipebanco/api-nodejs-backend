@@ -9,6 +9,7 @@ const cors = require('cors');
 const app = express();
 app.set('port',process.env.PORT||9000)//Setear el puerto
 
+//objeto de configuración
 const dbOptions = {
     host:'localhost',
     port:'3306',
@@ -20,7 +21,7 @@ const dbOptions = {
 //middlewares
 app.use(myconnect(mysql,dbOptions,'single'))//Se le pasa un objeto de configuracion
 app.use(express.json());//Se especifica el formato de los datos
-app.use(cors());//modulo para que react haga preconsulas al server
+app.use(cors());//modulo para que react haga preconsultas al server
 
 //routes
 app.get('/',(req,res)=>{
